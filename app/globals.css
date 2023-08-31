@@ -2,26 +2,236 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Bricolage+Grotesque:opsz,wght@10..48,500&family=Poppins&display=swap');
+
 :root {
+  --accent-color: #ff6978;
+  --ui-color: #e4fde1;
+  --bg-color: #202020;
+  --discord-green-color: #4da861;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+::selection {
+  color: #ff6978;
+  background: #202020;
 }
 
 body {
+  overflow-x: hidden;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: radial-gradient(circle, #322538, #1f1f1f);
+}
+
+.Poppins {
+  font-family: "Poppins";
+}
+
+.Borel {
+  font-family: "Borel";
+}
+
+.Bridge {
+  font-family: 'Bricolage Grotesque', sans-serif;;
+}
+
+.btn-primary {
+  font-size: 1.3vw;
+  background-color: var(--accent-color);
+  color: #61272d;
+  font-weight: bolder;
+  padding: 16px;
+  border-radius: 12px;
+  transition: ease-in-out 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #da5360;
+}
+
+.checkbox-padding {
+  padding: 6rem;
+}
+
+.mt-30 {
+  margin-top: 120px;
+}
+.mt-40 {
+  margin-top: 160px;
+}
+
+.mr-30 {
+  margin-right: 120px;
+}
+
+.ml-25 {
+  margin-left: 70px;
+}
+.ml-30 {
+  margin-left: 120px;
+}
+
+.code {
+  padding: 5px;
+  border: solid 1px #34363b;
+  background-color: #27272a;
+}
+
+.heading {
+  font-size: 8vw;
+  font-weight: bolder;
+  color: #ff6978;
+}
+
+.section-heading {
+  font-size: 5vw;
+  font-weight: bolder;
+  color: #ff6978;
+  margin-top: 10rem;
+}
+
+.mid-heading {
+  font-size: 3vw;
+  font-weight: bolder;
+  color: #ff6978;
+  margin-top: 10rem;
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.checkbox-container {
+  margin: 10rem;
+  margin-top: 15rem;
+}
+
+.side-image {
+  width: 20%; 
+  height: auto;
+}
+
+.community-img {
+  width: 20%; 
+  height: auto;
+}
+
+.features-img {
+  width: 30%;
+  height: auto;
+}
+
+.label {
+  height: 80px;
+  width: 160px;
+  background-color: #34363b;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+}
+
+.label:hover {
+  -webkit-transform: perspective(100px) rotateX(5deg) rotateY(-5deg);
+  transform: perspective(100px) rotateX(5deg) rotateY(-5deg);
+}
+
+#checkbox:checked ~ .label:hover {
+  -webkit-transform: perspective(100px) rotateX(-5deg) rotateY(5deg);
+  transform: perspective(100px) rotateX(-5deg) rotateY(5deg);
+}
+
+#checkbox {
+  display: none;
+}
+
+#checkbox:checked ~ .label::before {
+  left: 100px;
+  background-color: var(--discord-green-color);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.label::before {
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #5e64db;
+  left: 10px;
+  -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.3), 10px 10px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.3), 10px 10px 10px rgba(0, 0, 0, 0.3);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/*NavBar*/
+
+
+
+@media only screen and (max-width: 746px) {
+  .heading {
+    font-size: 20vw;
+  }
+  .section-heading {
+    font-size: 10vw;
+  }
+  .mid-heading {
+    font-size: 6vw;
+  }
+  .community-img {
+    width: 40%;
+  }
+  .features-img {
+    width: 60%;
+  }
+  .checkbox-padding {
+    padding: 1rem;
+  }
+  .label {
+    width: 120px;
+    height: 60px;
+  }
+  .hidden {
+    display: none !important;
+  }
+  .md:hidden {
+    display: block;
+  }
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 5px;
+    background-color: var(--bg-color); 
+    padding: 10px;
+    z-index: 100;
+  }
+  #mobile-menu a {
+    display: block;
+    padding: 8px;
+    color: white;
+    text-decoration: none;
+  }
+  #checkbox:checked ~ .label::before {
+    left: 70px;
+  }
+  .btn-primary {
+    font-size: 4vw;
+  }
 }
